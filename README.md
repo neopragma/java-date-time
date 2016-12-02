@@ -6,7 +6,7 @@ A small sample project to illustrate different ways to isolate Java code from th
 
 This represents a "legacy" implementation such as you might find in an existing code base. It illustrates a common problem when application code is not isolated from the system clock: It's hard to test functionality that depends on dates and times.
 
-One of the key requirements for automating a test case is that the case is _repeatable_. Repeatability means test fixtures and input values are identical across all executions of the case. As the actual current time is a moving target, it's difficult to make test cases repeatable when they are dependent on the system clock. (Actually, "difficult" is a gentle way of putting.)
+One of the key requirements for automating a test case is that the case is _repeatable_. Repeatability means test fixtures and input values are identical across all executions of the case. As the actual current time is a moving target, it's difficult to make test cases repeatable when they are dependent on the system clock. (Actually, "difficult" is a gentle way of putting it.)
 
 Issues with tight coupling to the system clock include:
 
@@ -17,6 +17,8 @@ Issues with tight coupling to the system clock include:
 - hard to ensure correct functionality when multiple time zones are involved
 
 This project only addresses the problem of writing repeatable unit tests for code that depends on the system date/time.
+
+The ```legacy``` implementation doesn't have a repeatable unit test case. You must change the test date to match the actual system date before running the test. This is not suitable for test automation.
 
 ## package com.neopragma.javadatetime.injection
 
